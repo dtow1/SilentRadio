@@ -32,7 +32,6 @@ public class Ticker extends JLabel
     {
         shiftRight=true;
         speed=10;
-        //char testString[] = new String("Test Text. Testing, Testing, 123...").toCharArray();
         newsFeed = new ArrayList<String>();
         File file = new File("tickernews.txt");
         Scanner fileInput;
@@ -47,7 +46,8 @@ public class Ticker extends JLabel
         } catch (FileNotFoundException e1)
         {
             // TODO Auto-generated catch block
-            e1.printStackTrace();
+            //e1.printStackTrace();
+        	System.out.println("Error loading file, default text playing");
         }
 
 
