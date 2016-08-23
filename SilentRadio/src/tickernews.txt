@@ -1,0 +1,4 @@
+This is the extra credit assignment for CS211S Advanced Java.
+This semester included multi-threading, reflection, graphics, and other topics.
+Java is a pretty great language.
+Looking forward to a future of learning.
