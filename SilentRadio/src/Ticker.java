@@ -36,6 +36,8 @@ public class Ticker extends JLabel
         File file = new File("tickernews.txt");
         Scanner fileInput;
         count = 0;
+        
+        /* Load the text input file */
         try
         {
             fileInput = new Scanner(file);
@@ -53,12 +55,15 @@ public class Ticker extends JLabel
 
         tickerFont = new Font("Garamond",Font.PLAIN,25);
         this.setFont(tickerFont);
+
+        /* Set a listener to handle animation timing */
         ActionListener advanceTimer = new ActionListener() 
         {
 
             @Override
             public void actionPerformed(ActionEvent e)
-            {
+            {	
+            	/* Shift the text first before updating the string */
                 shiftText();
                 if(count>lineLength*3)
                 {
@@ -73,6 +78,8 @@ public class Ticker extends JLabel
         tickerTimer.start();
     }
     
+    
+    /* Method to update the animation at each timer event*/
     public void updateString() {
         char testString[];
         if(!newsFeed.isEmpty())
@@ -91,6 +98,9 @@ public class Ticker extends JLabel
             displayText.add(testString[i]);
         }
     }
+    
+    
+    /* Method to move the text at each timer event */
     public void shiftText()
     {
         if(shiftRight)
@@ -106,7 +116,7 @@ public class Ticker extends JLabel
         StringBuilder outputString = new StringBuilder();
         while(!tempText.isEmpty())
         {
-            outputString.append(tempText.removeFirst());            //.add((String)displayText.removeFirst());
+            outputString.append(tempText.removeFirst());
         }
         this.setText(outputString.toString());
     }
@@ -128,9 +138,4 @@ public class Ticker extends JLabel
             tickerTimer.start();
     }
 
-    
-    public void setText()
-    {
-        
-    }
 }
